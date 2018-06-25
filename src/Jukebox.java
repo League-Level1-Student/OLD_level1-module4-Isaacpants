@@ -11,7 +11,10 @@ import java.net.URL;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import javazoom.jl.player.advanced.AdvancedPlayer;
@@ -30,15 +33,31 @@ public class Jukebox implements Runnable {
 		// 3. Find an mp3 on your computer or on the Internet.
 		// 4. Create a Song
 
-		// 5. Play the Song
-
+		// 5. Play the Songs
+        	   Song s = new Song("Spiderman 2 Pizza Theme - BASS BOOSTED.mp3");
+        	   Song s1 = new Song("MINE DIAMONDS miNECRAFT PARODY OF TAKE ON ME (1).mp3");
+        	   s.play();
+        	  JFrame jf = new JFrame();
+        	  JPanel jp = new JPanel();
+        	  JButton jb = new JButton();
+        	  JButton jb1 = new JButton();
+        	  
 		/*
-		 * 6. Create a user interface for your Jukebox so that the user can to
+		 * 6. Create a user interface for your jukebox so that the user can to
 		 * choose which song to play. You can use can use a different button for
 		 * each song, or a picture of the album cover. When the button or album
 		 * cover is clicked, stop the currently playing song, and play the one
 		 * that was selected.
 		 */
+        	  jf.add(jp);
+        	  jp.add(jb);
+        	  jp.add(jb1);
+        	  jf.setVisible(true);
+        	  jp.setVisible(true);
+        	  jb.setVisible(true);
+        	  jb.setText("spider man 2 pizza theme");
+        	  jb1.setText("mine diamonds");
+        	  jf.pack();
           }
 	/* Use this method to add album covers to your Panel. */
 	private JLabel loadImage(String fileName) {
@@ -47,6 +66,8 @@ public class Jukebox implements Runnable {
 		return new JLabel(icon);
 	}
 
+	
+	
 }
 
 class Song {
