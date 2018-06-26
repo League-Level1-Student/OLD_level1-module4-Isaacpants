@@ -3,7 +3,8 @@
  *    Level 1
  */
 
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -22,43 +23,44 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 /* 1. Download the JavaZoom jar from here: http://bit.ly/javazoom
  * 2. Right click your project and add it as an External JAR (Under Java Build Path > Libraries).*/
 
-public class Jukebox implements Runnable {
+public class Jukebox implements Runnable, ActionListener {
+	JFrame jf = new JFrame();
+	JPanel jp = new JPanel();
+	JButton jb = new JButton();
+	JButton jb1 = new JButton();
+	Song s = new Song("Spiderman 2 Pizza Theme - BASS BOOSTED.mp3");
+	Song s1 = new Song("MINE DIAMONDS miNECRAFT PARODY OF TAKE ON ME (1).mp3");
 
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Jukebox());
 	}
 
-           public void run() {
+	public void run() {
 
 		// 3. Find an mp3 on your computer or on the Internet.
 		// 4. Create a Song
 
 		// 5. Play the Songs
-        	   Song s = new Song("Spiderman 2 Pizza Theme - BASS BOOSTED.mp3");
-        	   Song s1 = new Song("MINE DIAMONDS miNECRAFT PARODY OF TAKE ON ME (1).mp3");
-        	   s.play();
-        	  JFrame jf = new JFrame();
-        	  JPanel jp = new JPanel();
-        	  JButton jb = new JButton();
-        	  JButton jb1 = new JButton();
-        	  
+
 		/*
-		 * 6. Create a user interface for your jukebox so that the user can to
-		 * choose which song to play. You can use can use a different button for
-		 * each song, or a picture of the album cover. When the button or album
-		 * cover is clicked, stop the currently playing song, and play the one
-		 * that was selected.
+		 * 6. Create a user interface for your jukebox so that the user can to choose
+		 * which song to play. You can use can use a different button for each song, or
+		 * a picture of the album cover. When the button or album cover is clicked, stop
+		 * the currently playing song, and play the one that was selected.
 		 */
-        	  jf.add(jp);
-        	  jp.add(jb);
-        	  jp.add(jb1);
-        	  jf.setVisible(true);
-        	  jp.setVisible(true);
-        	  jb.setVisible(true);
-        	  jb.setText("spider man 2 pizza theme");
-        	  jb1.setText("mine diamonds");
-        	  jf.pack();
-          }
+		jb.addActionListener(this);
+		jb1.addActionListener(this);
+		jf.add(jp);
+		jp.add(jb);
+		jp.add(jb1);
+		jf.setVisible(true);
+		jp.setVisible(true);
+		jb.setVisible(true);
+		jb.setText("spider man 2 pizza theme");
+		jb1.setText("mine diamonds");
+		jf.pack();
+	}
+
 	/* Use this method to add album covers to your Panel. */
 	private JLabel loadImage(String fileName) {
 		URL imageURL = getClass().getResource(fileName);
@@ -66,8 +68,23 @@ public class Jukebox implements Runnable {
 		return new JLabel(icon);
 	}
 
-	
-	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getSource() == jb) {
+
+			s.play();
+			s1.stop();
+
+		} else if (e.getSource() == jb1) {
+
+			s1.play();
+			s.stop();
+
+		}
+
+	}
+
 }
 
 class Song {
@@ -78,8 +95,7 @@ class Song {
 	private InputStream songStream;
 
 	/**
-	 * Songs can be constructed from files on your computer or Internet
-	 * addresses.
+	 * Songs can be constructed from files on your computer or Internet addresses.
 	 * 
 	 * Examples: <code> 
 	 * 		new Song("everywhere.mp3"); 	//from default package 
@@ -154,4 +170,3 @@ class Song {
 		}
 	}
 }
-
