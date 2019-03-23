@@ -16,9 +16,9 @@ public class SlotMachine {
 	}
 
 	void newSlot() {
-		int reel1 = r.nextInt(3);
-		int reel2 = r.nextInt(3);
-		int reel3 = r.nextInt(3);
+		int r1 = r.nextInt(3);
+		int r2 = r.nextInt(3);
+		int r3 = r.nextInt(3);
 		jf.add(jp);
 		jp.add(jb);
 		jf.setVisible(true);
