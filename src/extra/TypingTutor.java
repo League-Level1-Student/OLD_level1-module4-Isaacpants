@@ -7,10 +7,12 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class TypingTutor implements KeyListener {
 	JFrame jf= new JFrame();
 	JLabel jl = new JLabel();
+	JPanel jp = new JPanel();
 	char currentLetter;
 	
 	TypingTutor(){
@@ -19,7 +21,8 @@ public class TypingTutor implements KeyListener {
 	
 	jf.setVisible(true);
 	jf.setTitle("Type or Die");
-	jf.add(jl);
+	jp.add(jl);
+	jf.add(jp);
 	jf.addKeyListener(this);
 	
 	
@@ -76,17 +79,20 @@ public class TypingTutor implements KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		currentLetter = generateRandomLetter();
-		
-		jl.setText(""+currentLetter);
-		
+		System.out.println(""+currentLetter);
+		System.out.println(""+e.getKeyChar());
 if(e.getKeyChar()==currentLetter) {
-			
-			jf.setBackground(Color.green);
+			System.out.println("u r correct");
+			jp.setBackground(Color.green);
 		}else {
 			
-			jf.setBackground(Color.red);
+			jp.setBackground(Color.red);
 		}
+		currentLetter = generateRandomLetter();
+
+		jl.setText(""+currentLetter);
+		
+
 		
 	}
 }
