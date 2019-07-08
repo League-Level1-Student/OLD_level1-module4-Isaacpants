@@ -16,6 +16,8 @@ public class ChuckleClicker implements ActionListener {
 	JButton jb1 = new JButton();
 	JButton jb2 = new JButton();
 	JButton jb3 = new JButton();
+	JButton jb4 = new JButton();
+	JButton jb5 = new JButton();
 	public static void main(String[] args) {
 		ChuckleClicker mb = new ChuckleClicker();
 		mb.makeButtons();
@@ -29,17 +31,23 @@ public class ChuckleClicker implements ActionListener {
 		jp.add(jb1);
 		jp.add(jb2);
 		jp.add(jb3);
-		jp.setLayout(new GridLayout(2,2));
+		jp.add(jb4);
+		jp.add(jb5);
+		jp.setLayout(new GridLayout(3,3));
 		jb.setText("joke");
 		jb1.setText("punchline");
 		jb2.setText("joke");
 		jb3.setText("punchline");
+		jb4.setText("joke");
+		jb5.setText("punchline");
 		jf.setVisible(true);
 		jf.pack();
 		jb.addActionListener(this);
 		jb1.addActionListener(this);
 		jb2.addActionListener(this);
 		jb3.addActionListener(this);
+		jb4.addActionListener(this);
+		jb5.addActionListener(this);
 
 	}
 
@@ -54,9 +62,14 @@ public class ChuckleClicker implements ActionListener {
 		}
 		
 		if (e.getSource() == jb2) {
-			JOptionPane.showMessageDialog(null, "waht did the traffic light say to the car?");
+			JOptionPane.showMessageDialog(null, "what did the traffic light say to the car?");
 		} if (e.getSource() == jb3) {
 			JOptionPane.showMessageDialog(null, "Dont look im about to change");
+
+		}if (e.getSource() == jb4) {
+			JOptionPane.showMessageDialog(null, "What did the termite say when he entered the bar?");
+		} if (e.getSource() == jb5) {
+			JOptionPane.showMessageDialog(null, "is the bar tender here");
 
 		}
 		
