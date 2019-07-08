@@ -167,13 +167,13 @@ public class Jeopardy implements ActionListener {
 		if (ca.equals("206 bones")) {
 			// Increase the score by the prizeMoney
 			score += prizeMoney;
-
+			showCorrectImage();
 			// Pop up a message to tell the user they were correct
 			JOptionPane.showMessageDialog(null, "You are correct!!!");
 		} else {
 
 			// Otherwise
-
+			showIncorrectImage();
 			// Decrement the score by the prizeMoney
 			score -= prizeMoney;
 			// Pop up a message to tell the user they were wrong and give them the correct
@@ -192,30 +192,31 @@ public class Jeopardy implements ActionListener {
 				playJeopardyTheme();
 				// Remove this temporary message and replace it with a pop-up that asks the user
 				// the question
-			
+				String ca2 = JOptionPane.showInputDialog("How many bones are in the body of a human baby");
 
 				// Stop the theme music when they have entered their response. Hint: use the
 				// sound variable
 				sound.stop();
 				// If the answer is correct
 
-				String ca2 = JOptionPane.showInputDialog("How many bones are in the body of a human baby");
+				
 				if (ca2.equals("270 bones")) {
 					// Increase the score by the prizeMoney
 					score += prizeMoney;
-
+					
 					// Pop up a message to tell the user they were correct
 					JOptionPane.showMessageDialog(null, "You are correct!!!");
+					showCorrectImage();
 				} else {
 
 					// Otherwise
-
+					showIncorrectImage();
 					// Decrement the score by the prizeMoney
 					score -= prizeMoney;
 					// Pop up a message to tell the user they were wrong and give them the correct
 					// answer
 					JOptionPane.showMessageDialog(null, "YOU ARE WRONG!!!");
-					;
+					
 				}
 				// Call the updateScore() method
 				updateScore();
@@ -235,29 +236,30 @@ public class Jeopardy implements ActionListener {
 				// Remove this temporary message and replace it with a pop-up that asks the user
 				// the question
 			
-
+				String ca3 = JOptionPane.showInputDialog("How many bones are in the body of a dog");
 				// Stop the theme music when they have entered their response. Hint: use the
 				// sound variable
 				sound.stop();
 				// If the answer is correct
 
-				String ca3 = JOptionPane.showInputDialog("How many bones are in the body of a dog");
+				
 				if (ca3.equals("319 to 321 bones")) {
 					// Increase the score by the prizeMoney
 					score += prizeMoney;
-
+					 
 					// Pop up a message to tell the user they were correct
 					JOptionPane.showMessageDialog(null, "You are correct!!!");
+					showCorrectImage();
 				} else {
 
 					// Otherwise
-
+					showIncorrectImage();
 					// Decrement the score by the prizeMoney
 					score -= prizeMoney;
 					// Pop up a message to tell the user they were wrong and give them the correct
 					// answer
 					JOptionPane.showMessageDialog(null, "YOU ARE WRONG!!!");
-					;
+					
 				}
 				// Call the updateScore() method
 				updateScore();
@@ -276,30 +278,33 @@ public class Jeopardy implements ActionListener {
 				playJeopardyTheme();
 				// Remove this temporary message and replace it with a pop-up that asks the user
 				// the question
-			
+
+				String ca4 = JOptionPane.showInputDialog("How many bones are in the body of a cat");
+
 
 				// Stop the theme music when they have entered their response. Hint: use the
 				// sound variable
 				sound.stop();
 				// If the answer is correct
 
-				String ca4 = JOptionPane.showInputDialog("How many bones are in the body of a cat");
+				
 				if (ca4.equals("244 bones")) {
 					// Increase the score by the prizeMoney
 					score += prizeMoney;
-
+					 
 					// Pop up a message to tell the user they were correct
 					JOptionPane.showMessageDialog(null, "You are correct!!!");
+					showCorrectImage();
 				} else {
 
 					// Otherwise
-
+					showIncorrectImage();
 					// Decrement the score by the prizeMoney
 					score -= prizeMoney;
 					// Pop up a message to tell the user they were wrong and give them the correct
 					// answer
 					JOptionPane.showMessageDialog(null, "YOU ARE WRONG!!!");
-					;
+					
 				}
 				// Call the updateScore() method
 				updateScore();
