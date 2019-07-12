@@ -70,6 +70,7 @@ public class MediaPalace {
 	public void playMusicOnComputer(String fileName) {
 		File fileToPlay = new File(fileName);
 		try {
+			System.out.println(fileToPlay.getAbsolutePath());
 			java.awt.Desktop.getDesktop().open(fileToPlay);
 		} catch (IOException e1) {
 			e1.printStackTrace();

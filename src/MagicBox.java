@@ -50,12 +50,15 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	}
 
 	private void createUI() {
-		JFrame frame = new JFrame("The Magic Box contains many secrets...");
-		frame.add(this);
+		JFrame jf = new JFrame("The Magic Box contains many secrets...");
+		jf.add(this);
 		setPreferredSize(new Dimension(backgroundImage.getWidth(), backgroundImage.getHeight()));
-		frame.pack();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
+		jf.pack();
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.setVisible(true);
+		jf.addMouseListener(this);
+		
+		
 	}
 
 	private void loadBackgroundImage() throws Exception {
@@ -70,12 +73,25 @@ public class MagicBox extends JPanel implements Runnable, MouseListener {
 	@Override
 	public void paintComponent(Graphics g) {
 		g.drawImage(backgroundImage, 0, 0, null);
+		
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		int rgb = backgroundImage.getRGB(e.getX(), e.getY());
+		new MediaPalace().loadImageFromHardDrive("");
+		System.out.println(rgb); 
 		
+		
+		if(rgb==-9675196) {
+			new MediaPalace().playMusicOnComputer("src/woohoo.mp3");
+		}
+		if(rgb==-8684938) {
+			new MediaPalace().playMusicOnComputer("src/Spiderman 2 Pizza Theme - Bass Boosted.mp3");
+		}if(rgb==-69429) {
+			new MediaPalace().playMusicOnComputer("src/MINE DIAMONDS miNECRAFT PARODY OF TAKE ON ME (1).mp3");
+		}
 	}
 
 	@Override
